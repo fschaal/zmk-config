@@ -31,6 +31,11 @@
             bindings = <&kp K_LOCK>;
             key-positions = <17 18>;
         };
+
+        equals {
+            bindings = <&kp EQUAL>;
+            key-positions = <30 31>;
+        };
     };
 
     macros {
