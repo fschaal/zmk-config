@@ -55,7 +55,7 @@
             bindings = <
 &none      &kp B  &kp L       &kp D           &kp W          &kp Z          &kp SINGLE_QUOTE  &kp F           &kp O           &kp U           &kp J     &kp SEMICOLON
 &none      &kp N  &mt LGUI R  &mt LEFT_ALT T  &mt LCTRL S    &kp G          &kp Y             &mt LCTRL H     &mt LEFT_ALT A  &mt LEFT_GUI E  &kp I     &kp COMMA
-&lt 3 TAB  &kp Q  &kp X       &kp M           &kp C          &kp V          &kp K             &kp M           &kp PERIOD      &kp MINUS       &kp FSLH  &kp EXCLAMATION
+&lt 3 TAB  &kp Q  &kp X       &kp M           &kp C          &kp V          &kp K             &kp P           &kp PERIOD      &kp MINUS       &kp FSLH  &kp EXCLAMATION
                               &hyper          &kp BACKSPACE  &lt 1 SPACE    &lt 2 ENTER       &kp LEFT_SHIFT  &kp Q
             >;
         };
