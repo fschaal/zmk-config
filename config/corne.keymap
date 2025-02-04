@@ -75,18 +75,6 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <14 15 16 36 37 38>;
         };
-
-        hyper_modtap: hyper_modtap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HYPER_MT";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            require-prior-idle-ms = <150>;
-            hold-trigger-on-release;
-            bindings = <&kp ESC>, <&kp LC &kp LS &kp LA &kp LG>;
-        };
     };
 
     keymap {
@@ -103,7 +91,7 @@
 &none      &kp B  &kp L                  &kp D                      &kp W                   &kp Z          &kp SINGLE_QUOTE  &kp F                    &kp O                       &kp U                       &kp J     &kp SEMICOLON
 &none      &kp N  &Hold_tap_left LGUI R  &Hold_tap_left LEFT_ALT T  &Hold_tap_left LCTRL S  &kp G          &kp Y             &Hold_tap_right LCTRL H  &Hold_tap_right LEFT_ALT A  &Hold_tap_right LEFT_GUI E  &kp I     &kp COMMA
 &lt 3 TAB  &kp Q  &kp X                  &kp M                      &kp C                   &kp V          &kp K             &kp P                    &kp PERIOD                  &kp MINUS                   &kp FSLH  &kp EXCLAMATION
-                                         &hyper_modtap                     &kp BACKSPACE           &lt 1 SPACE    &lt 2 ENTER       &kp LEFT_SHIFT           &kp Q
+                                         &mt LC(LS(LA(LGUI))) ESCAPE                     &kp BACKSPACE           &lt 1 SPACE    &lt 2 ENTER       &kp LEFT_SHIFT           &kp Q
             >;
         };
 
