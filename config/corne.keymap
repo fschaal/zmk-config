@@ -81,11 +81,11 @@
             label = "HYPER_MT";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             require-prior-idle-ms = <150>;
             hold-trigger-on-release;
-            bindings = <&kp ESC>, <&kp LC(LS(LA(LG(KC_NO))))>;
+            bindings = <&kp ESC>, <&kp LC LS LA LG(KC_NO)>;
         };
     };
 
