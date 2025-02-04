@@ -75,6 +75,13 @@
             hold-trigger-on-release;
             hold-trigger-key-positions = <14 15 16 36 37 38>;
         };
+
+        hyper: hyper {
+            compatible = "zmk,behavior-mod-morph";
+            label = "HYPER";
+            #binding-cells = <0>;
+            bindings = <&kp LC(LS(LA(LG(KC_NO))))>;
+        };
     };
 
     keymap {
