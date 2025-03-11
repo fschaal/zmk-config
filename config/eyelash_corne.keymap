@@ -82,10 +82,10 @@
         base_layer {
             display-name = "BASE";
             bindings = <
-&kp TILDE  &kp B  &kp L      &kp D  &kp W  &kp Z  &kp SINGLE_QUOTE  &kp F  &kp O  &kp U  &kp J  &kp SEMICOLON
-&none      &kp N  &hold_tap_left LGUI R  &hold_tap_left LEFT_ALT T  &hold_tap_left LCTRL S  &kp G  &kp Y  &hold_tap_right RCTRL H  &hold_tap_right RIGHT_ALT A  &hold_tap_right RIGHT_GUI E  &kp I  &kp COMMA
-&lt 3 TAB  &kp Q  &kp X  &kp M  &kp C  &kp V  &kp K  &kp P  &kp PERIOD  &kp MINUS  &kp FSLH  &kp EXCLAMATION
-                      &mt LC(LS(LA(LGUI))) ESCAPE  &kp BACKSPACE  &lt 1 SPACE  &lt 2 ENTER  &kp RIGHT_SHIFT  &kp Q
+&kp TAB   &kp Q  &kp W      &kp E      &kp R      &kp T      &none   &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
+&kp LCTRL &kp A  &kp S      &kp D      &kp F      &kp G      &none   &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
+&kp LSHFT &kp Z  &kp X      &kp C      &kp V      &kp B      &none   &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp ESC
+                        &kp LGUI  &mo 1  &lt 3 SPACE  &none   &lt 3 ENTER  &mo 2  &kp RALT
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
@@ -93,10 +93,10 @@
         function_layer {
             display-name = "FUNC";
             bindings = <
-&trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5  &trans  &kp K_PLAY_PAUSE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans  &kp BSPC
-&none   &kp F6   &kp F7   &kp F8  &kp F9  &kp F10  &trans  &kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &trans
-&none   &kp F11  &kp F12  &trans  &trans  &kp LG(LS(NUMBER_4))  &trans  &kp LA(LEFT)  &kp LA(RIGHT)  &trans  &trans  &trans
-                      &trans  &trans  &trans  &trans  &trans  &trans
+&none  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &none  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp BSPC
+&none  &kp F11  &kp F12  &none  &none  &none  &none  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp HOME  &kp PG_UP
+&none  &none  &none  &none  &none  &none  &none  &kp INS  &kp DEL  &kp END  &kp PG_DN  &kp ESC  &kp ENTER
+                        &none  &none  &none  &none  &none  &none  &none
             >;
             sensor-bindings = <&scroll_encoder>;
         };
@@ -104,10 +104,10 @@
         symbol_layer {
             display-name = "SYMB";
             bindings = <
-&trans  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &kp PLUS  &kp N7  &kp N8  &kp N9  &kp ASTERISK  &none
-&trans  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH  &kp GRAVE  &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE  &kp TILDE
-&kp LSHFT  &kp PERCENT  &kp CARET  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp AMPERSAND  &kp EQUAL  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUBS  &none
-                      &trans  &trans  &trans  &trans  &trans  &kp N0
+&none  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &none  &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
+&none  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH  &none  &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE  &kp TILDE
+&none  &none  &none  &none  &none  &none  &none  &kp HOME  &kp END  &kp PG_UP  &kp PG_DN  &kp ESC  &kp ENTER
+                        &none  &none  &none  &none  &none  &none  &none
             >;
             sensor-bindings = <&scroll_encoder>;
         };
@@ -115,10 +115,10 @@
         windows_layer {
             display-name = "WIN";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(LS(KP_NUMBER_7))  &kp LS(LA(KP_NUMBER_8))  &kp LA(LS(KP_NUMBER_9))  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(LS(KP_NUMBER_4))  &kp LS(LA(KP_NUMBER_5))  &kp LA(LS(KP_NUMBER_6))  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &kp LA(LS(KP_NUMBER_1))  &kp LA(LS(KP_NUMBER_2))  &kp LA(LS(KP_NUMBER_3))  &trans  &trans
-                        &trans  &trans  &trans  &trans  &trans  &trans
+&none  &none  &none  &none  &none  &none  &none  &kp LA(LS(KP_NUMBER_7))  &kp LS(LA(KP_NUMBER_8))  &kp LA(LS(KP_NUMBER_9))  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &kp LA(LS(KP_NUMBER_4))  &kp LS(LA(KP_NUMBER_5))  &kp LA(LS(KP_NUMBER_6))  &none  &none
+&none  &none  &none  &none  &none  &none  &none  &kp LA(LS(KP_NUMBER_1))  &kp LA(LS(KP_NUMBER_2))  &kp LA(LS(KP_NUMBER_3))  &none  &none
+                        &none  &none  &none  &none  &none  &none  &none
             >;
             sensor-bindings = <&scroll_encoder>;
         };
