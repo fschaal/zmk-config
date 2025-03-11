@@ -26,7 +26,8 @@
     trigger-period-ms = <16>;
 };
 
-/ {
+ / {
+    // Combos from your old config
     combos {
         compatible = "zmk,combos";
 
@@ -47,6 +48,7 @@
         };
     };
 
+    // Behaviors from your old config
     behaviors {
         hold_tap_left: hold_tap_left {
             compatible = "zmk,behavior-hold-tap";
@@ -69,6 +71,7 @@
         };
     };
 
+    // Encoder for scrolling
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -79,46 +82,91 @@
     keymap {
         compatible = "zmk,keymap";
 
+        /****************************************
+         * BASE LAYER (old “BASE”)
+         ****************************************/
         base_layer {
             display-name = "BASE";
-            bindings = <
-&kp TAB   &kp Q  &kp W      &kp E      &kp R      &kp T      &none   &kp Y      &kp U      &kp I      &kp O      &kp P      &kp BSPC
-&kp LCTRL &kp A  &kp S      &kp D      &kp F      &kp G      &none   &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp SQT
-&kp LSHFT &kp Z  &kp X      &kp C      &kp V      &kp B      &none   &kp N      &kp M      &kp COMMA  &kp DOT    &kp FSLH   &kp ESC
-                        &kp LGUI  &mo 1  &lt 3 SPACE  &none   &lt 3 ENTER  &mo 2  &kp RALT
+            bindings = < 
+                /* Row 1 (12 keys) */
+                &kp TILDE    &kp B       &kp L                        &kp D                     &kp W                   &kp Z
+                &kp SINGLE_QUOTE  &kp F  &kp O    &kp U  &kp J  &kp SEMICOLON
+
+                /* Row 2 (12 keys) */
+                &none         &kp N      &hold_tap_left LGUI R        &hold_tap_left LEFT_ALT T &hold_tap_left LCTRL S &kp G
+                &kp Y         &hold_tap_right RCTRL H  &hold_tap_right RIGHT_ALT A  &hold_tap_right RIGHT_GUI E  &kp I   &kp COMMA
+
+                /* Row 3 (12 keys) */
+                &lt 3 TAB     &kp Q      &kp X                        &kp M                     &kp C                   &kp V
+                &kp K         &kp P      &kp PERIOD                   &kp MINUS                 &kp FSLH                &kp EXCLAMATION
+
+                /* Row 4 (6 keys) */
+                &mt LC(LS(LA(LGUI))) ESCAPE &kp BACKSPACE  &lt 1 SPACE   &lt 2 ENTER  &kp RIGHT_SHIFT &kp Q
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
+        /****************************************
+         * FUNCTION LAYER (old “FUNC”)
+         ****************************************/
         function_layer {
             display-name = "FUNC";
             bindings = <
-&none  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5  &none  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10  &kp BSPC
-&none  &kp F11  &kp F12  &none  &none  &none  &none  &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT  &kp HOME  &kp PG_UP
-&none  &none  &none  &none  &none  &none  &none  &kp INS  &kp DEL  &kp END  &kp PG_DN  &kp ESC  &kp ENTER
-                        &none  &none  &none  &none  &none  &none  &none
+                /* Row 1 (12 keys) */
+                &trans  &kp F1    &kp F2   &kp F3  &kp F4  &kp F5  &trans  &kp K_PLAY_PAUSE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans  &kp BSPC
+
+                /* Row 2 (12 keys) */
+                &none   &kp F6    &kp F7   &kp F8  &kp F9  &kp F10 &trans  &kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT &trans
+
+                /* Row 3 (12 keys) */
+                &none   &kp F11   &kp F12  &trans  &trans  &kp LG(LS(NUMBER_4))  &trans &kp LA(LEFT) &kp LA(RIGHT) &trans &trans &trans
+
+                /* Row 4 (6 keys) */
+                &trans  &trans    &trans   &trans  &trans  &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
+        /****************************************
+         * SYMBOL LAYER (old “SYMB”)
+         ****************************************/
         symbol_layer {
             display-name = "SYMB";
             bindings = <
-&none  &kp EXCL  &kp AT  &kp HASH  &kp DLLR  &kp PRCNT  &none  &kp CARET  &kp AMPS  &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&none  &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp BSLH  &none  &kp UNDER  &kp PLUS  &kp LBRC  &kp RBRC  &kp PIPE  &kp TILDE
-&none  &none  &none  &none  &none  &none  &none  &kp HOME  &kp END  &kp PG_UP  &kp PG_DN  &kp ESC  &kp ENTER
-                        &none  &none  &none  &none  &none  &none  &none
+                /* Row 1 (12 keys) */
+                &trans  &kp EXCL  &kp AT  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PIPE  &kp PLUS  &kp N7  &kp N8  &kp N9  &kp ASTERISK  &none
+
+                /* Row 2 (12 keys) */
+                &trans  &kp MINUS &kp EQUAL &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp GRAVE
+                &kp MINUS &kp NUMBER_4 &kp N5 &kp NUMBER_6 &kp SEMICOLON &none
+
+                /* Row 3 (12 keys) */
+                &kp LSHFT &kp PERCENT &kp CARET &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp AMPERSAND
+                &kp EQUAL  &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUBS &none
+
+                /* Row 4 (6 keys) */
+                &trans  &trans  &trans  &trans  &trans  &kp N0
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
+        /****************************************
+         * WINDOWS LAYER (old “WIN”)
+         ****************************************/
         windows_layer {
             display-name = "WIN";
             bindings = <
-&none  &none  &none  &none  &none  &none  &none  &kp LA(LS(KP_NUMBER_7))  &kp LS(LA(KP_NUMBER_8))  &kp LA(LS(KP_NUMBER_9))  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &kp LA(LS(KP_NUMBER_4))  &kp LS(LA(KP_NUMBER_5))  &kp LA(LS(KP_NUMBER_6))  &none  &none
-&none  &none  &none  &none  &none  &none  &none  &kp LA(LS(KP_NUMBER_1))  &kp LA(LS(KP_NUMBER_2))  &kp LA(LS(KP_NUMBER_3))  &none  &none
-                        &none  &none  &none  &none  &none  &none  &none
+                /* Row 1 (12 keys) */
+                &trans &trans &trans &trans &trans &trans &trans &kp LA(LS(KP_NUMBER_7))  &kp LS(LA(KP_NUMBER_8))  &kp LA(LS(KP_NUMBER_9))  &trans &trans
+
+                /* Row 2 (12 keys) */
+                &trans &trans &trans &trans &trans &trans &trans &kp LA(LS(KP_NUMBER_4))  &kp LS(LA(KP_NUMBER_5))  &kp LA(LS(KP_NUMBER_6))  &trans &trans
+
+                /* Row 3 (12 keys) */
+                &trans &trans &trans &trans &trans &trans &trans &kp LA(LS(KP_NUMBER_1))  &kp LA(LS(KP_NUMBER_2))  &kp LA(LS(KP_NUMBER_3))  &trans &trans
+
+                /* Row 4 (6 keys) */
+                &trans &trans &trans &trans &trans &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
