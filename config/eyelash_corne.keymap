@@ -105,12 +105,12 @@ combos {
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "QWERTY";
+            display-name = "BASE";
             bindings = <
-&kp TAB    &kp Q  &kp W      &kp E     &kp R  &kp T                              &kp UP                &kp Y        &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&td0       &kp A  &kp S      &kp D     &kp F  &kp G                    &kp LEFT  &kp ENTER  &kp RIGHT  &kp H        &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL  &kp Z  &kp X      &kp C     &kp V  &kp B       &kp SPACE              &kp DOWN              &kp N        &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                             &kp LGUI  &mo 1  &lt 3 SPACE                                              &lt 3 ENTER  &mo 2  &kp RALT
+&kp TILDE  &kp B  &kp L                    &kp D                        &kp W                   &kp Z                             &kp UP                 &kp SINGLE_QUOTE  &kp F                    &kp O                        &kp U                        &kp J     &kp SEMICOLON
+&none      &kp N  &Hold_tap_left LGUI R    &Hold_tap_left LEFT_ALT T    &Hold_tap_left LCTRL S  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT   &kp Y             &Hold_tap_right RCTRL H  &Hold_tap_right RIGHT_ALT A  &Hold_tap_right RIGHT_GUI E  &kp I     &kp COMMA
+&lt 3 TAB  &kp Q  &kp X                    &kp M                        &kp C                   &kp V       &trans                 &kp DOWN              &kp K             &kp P                    &kp PERIOD                   &kp MINUS                    &kp FSLH  &kp EXCLAMATION
+                                           &mt LC(LS(LA(LGUI))) ESCAPE  &kp BACKSPACE           &lt 1 SPACE                                              &lt 1 SPACE       &lt 2 ENTER              &kp RIGHT_SHIFT              &kp Q
             >;
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
