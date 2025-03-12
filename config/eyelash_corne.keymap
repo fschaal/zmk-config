@@ -102,50 +102,78 @@ combos {
     };
 
         keymap {
-        compatible = "zmk,keymap";
+    compatible = "zmk,keymap";
 
-        default_layer {
-            display-name = "BASE";
-            bindings = <
+    default_layer {
+        display-name = "BASE";
+        bindings = <
+            /* Row 1: 13 keys */
 &kp TILDE  &kp B  &kp L                    &kp D                        &kp W                   &kp Z                             &kp UP                 &kp SINGLE_QUOTE  &kp F                    &kp O                        &kp U                        &kp J     &kp SEMICOLON
+
+            /* Row 2: 15 keys */
 &none      &kp N  &Hold_tap_left LGUI R    &Hold_tap_left LEFT_ALT T    &Hold_tap_left LCTRL S  &kp G                   &kp LEFT  &kp ENTER  &kp RIGHT   &kp Y             &Hold_tap_right RCTRL H  &Hold_tap_right RIGHT_ALT A  &Hold_tap_right RIGHT_GUI E  &kp I     &kp COMMA
+
+            /* Row 3: 14 keys */
 &lt 3 TAB  &kp Q  &kp X                    &kp M                        &kp C                   &kp V       &trans                 &kp DOWN              &kp K             &kp P                    &kp PERIOD                   &kp MINUS                    &kp FSLH  &kp EXCLAMATION
+
+            /* Row 4: 7 keys */
                                            &mt LC(LS(LA(LGUI))) ESCAPE  &kp BACKSPACE           &lt 1 SPACE                                              &lt 1 SPACE       &lt 2 ENTER              &kp RIGHT_SHIFT              &kp Q
-            >;
-            sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
-        };
-
-        lower_layer {
-            display-name = "NUMBER";
-            bindings = <
-&trans  &kp N1           &kp N2          &kp N3        &kp N4        &kp N5                                        &mmv MOVE_UP                     &kp N6           &kp N7           &kp N8           &kp N9           &kp N0    &kp BSPC
-&trans  &bt BT_CLR_ALL   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3                           &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp LEFT         &kp DOWN         &kp UP           &kp RIGHT        &kp HOME  &kp PG_UP
-&trans  &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &trans        &trans        &rgb_ug RGB_EFF &kp C_MUTE                    &mmv MOVE_DOWN                   &rgb_ug RGB_EFR  &rgb_ug RGB_SPI  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp END   &kp PG_DN
-                                         &trans        &trans        &trans                                                                         &kp INS          &kp DEL          &trans
-            >;
-            sensor-bindings = <&scroll_encoder>;
-        };
-
-        raise_layer {
-            display-name = "SYMBOL";
-            bindings = <
-&trans  &kp EXCL      &kp AT        &kp HASH   &kp DLLR   &kp PRCNT                           &mmv MOVE_UP                     &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR  &kp RPAR  &kp BSPC
-&trans  &bt BT_CLR    &mkp LCLK     &mkp MCLK  &mkp RCLK  &mkp MB4            &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp BSLH  &kp GRAVE
-&trans  &out OUT_USB  &out OUT_BLE  &none      &none      &mkp MB5  &trans                    &mmv MOVE_DOWN                   &kp UNDER  &kp PLUS   &kp LBRC   &kp RBRC  &kp PIPE  &kp TILDE
-                                    &trans     &trans     &kp SPACE                                                            &kp RET    &trans     &trans
-            >;
-            sensor-bindings = <&scroll_encoder>;
-        };
-
-        layer_3 {
-            display-name = "Fn";
-            bindings = <
-&studio_unlock   &kp F1      &kp F2      &kp F3       &kp F4     &kp F5                                  &mmv MOVE_UP                     &kp F6       &kp F7     &kp F8       &kp F9      &kp F10          &kp F11
-&trans  &trans      &mkp LCLK   &mkp MCLK    &mkp RCLK  &mkp MB4                &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &bootloader  &mkp LCLK  &mkp MCLK    &mkp RCLK   &kp PRINTSCREEN  &kp F12
-&trans  &sys_reset  &trans      &bootloader  &trans     &mkp MB5  &kp C_MUTE                    &mmv MOVE_DOWN                   &trans       &trans     &bootloader  &sys_reset  &kp SCROLLLOCK   &kp PAUSE_BREAK
-                                &trans      &trans      &trans                                                                   &trans       &trans     &trans
-            >;
-            sensor-bindings = <&scroll_encoder>;
-        };
+        >;
+        sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
     };
+
+    function_layer {
+        display-name = "FUNC";
+        bindings = <
+            /* Row 1: 13 keys (old FUNC row had 12; add 1 &none) */
+&trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &trans &kp K_PLAY_PAUSE &kp C_VOLUME_DOWN &kp C_VOLUME_UP &trans &kp BSPC &none
+
+            /* Row 2: 15 keys (old FUNC row had 12; add 3 &none) */
+&none &kp F6 &kp F7 &kp F8 &kp F9 &kp F10 &trans &kp LEFT &kp DOWN_ARROW &kp UP_ARROW &kp RIGHT &trans &none &none &none
+
+            /* Row 3: 14 keys (old FUNC row had 12; add 2 &none) */
+&none &kp F11 &kp F12 &trans &trans &kp LG(LS(NUMBER_4)) &trans &kp LA(LEFT) &kp LA(RIGHT) &trans &trans &trans &none &none
+
+            /* Row 4: 7 keys (old FUNC row had 6; add 1 &none) */
+&trans &trans &trans &trans &trans &trans &none
+        >;
+        sensor-bindings = <&scroll_encoder>;
+    };
+
+    symbol_layer {
+        display-name = "SYMB";
+        bindings = <
+            /* Row 1: 13 keys (old SYMB row had 12; add 1 &none) */
+&trans &kp EXCL &kp AT &kp LEFT_BRACE &kp RIGHT_BRACE &kp PIPE &kp PLUS &kp N7 &kp N8 &kp N9 &kp ASTERISK &none &none
+
+            /* Row 2: 15 keys (old SYMB row had 12; add 3 &none) */
+&trans &kp MINUS &kp EQUAL &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp GRAVE &kp MINUS &kp NUMBER_4 &kp N5 &kp NUMBER_6 &kp SEMICOLON &none &none &none &none
+
+            /* Row 3: 14 keys (old SYMB row had 12; add 2 &none) */
+&kp LSHFT &kp PERCENT &kp CARET &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp AMPERSAND &kp EQUAL &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUBS &none &none &none
+
+            /* Row 4: 7 keys (old SYMB row had 6; add 1 &none) */
+&trans &trans &trans &trans &trans &kp N0 &none
+        >;
+        sensor-bindings = <&scroll_encoder>;
+    };
+
+    windows_layer {
+        display-name = "WIN";
+        bindings = <
+            /* Row 1: 13 keys (old WIN row had 12; add 1 &none) */
+&trans &trans &trans &trans &trans &trans &trans &kp LA(LS(KP_NUMBER_7)) &kp LS(LA(KP_NUMBER_8)) &kp LA(LS(KP_NUMBER_9)) &trans &trans &none
+
+            /* Row 2: 15 keys (old WIN row had 12; add 3 &none) */
+&trans &trans &trans &trans &trans &trans &trans &kp LA(LS(KP_NUMBER_4)) &kp LS(LA(KP_NUMBER_5)) &kp LA(LS(KP_NUMBER_6)) &trans &trans &none &none &none
+
+            /* Row 3: 14 keys (old WIN row had 12; add 2 &none) */
+&trans &trans &trans &trans &trans &trans &trans &kp LA(LS(KP_NUMBER_1)) &kp LA(LS(KP_NUMBER_2)) &kp LA(LS(KP_NUMBER_3)) &trans &trans &none &none
+
+            /* Row 4: 7 keys (old WIN row had 6; add 1 &none) */
+&trans &trans &trans &trans &trans &trans &none
+        >;
+        sensor-bindings = <&scroll_encoder>;
+    };
+};
 };
