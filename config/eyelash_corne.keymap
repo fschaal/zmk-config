@@ -4,6 +4,7 @@
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
 
@@ -152,10 +153,10 @@
         windows_layer {
             display-name = "WIN";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans                      &kp UP                &kp LA(LS(KP_NUMBER_7))  &kp LS(LA(KP_NUMBER_8))  &kp LA(LS(KP_NUMBER_9))  &trans  &trans  &none
-&trans  &trans  &trans  &trans  &trans  &trans            &kp LEFT  &kp ENTER  &kp RIGHT  &none                    &none                    &none                    &none   &none   &none
-&trans  &trans  &trans  &trans  &trans  &trans  &trans              &kp DOWN              &kp LA(LS(KP_NUMBER_1))  &kp LA(LS(KP_NUMBER_2))  &kp LA(LS(KP_NUMBER_3))  &trans  &none   &none
-                        &trans  &trans  &trans                                            &trans                   &trans                   &trans
+&trans  &trans  &trans  &trans  &trans  &trans                              &kp UP                &kp LA(LS(KP_NUMBER_7))  &kp LS(LA(KP_NUMBER_8))  &kp LA(LS(KP_NUMBER_9))  &trans  &trans  &none
+&trans  &trans  &trans  &trans  &trans  &trans                    &kp LEFT  &kp ENTER  &kp RIGHT  &none                    &none                    &none                    &none   &none   &none
+&trans  &trans  &trans  &trans  &trans  &trans          &trans              &kp DOWN              &kp LA(LS(KP_NUMBER_1))  &kp LA(LS(KP_NUMBER_2))  &kp LA(LS(KP_NUMBER_3))  &trans  &none   &none
+                        &trans  &trans  &bt BT_CLR_ALL                                            &trans                   &trans                   &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
