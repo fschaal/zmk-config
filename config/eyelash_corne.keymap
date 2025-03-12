@@ -120,10 +120,10 @@
         function_layer {
             display-name = "FUNC";
             bindings = <
-&trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5                                    &kp UP                &kp K_PLAY_PAUSE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans        &kp BSPC   &none
-&none   &kp F6   &kp F7   &kp F8  &kp F9  &kp F10                         &kp LEFT  &kp ENTER  &kp RIGHT  &none             &kp LEFT           &kp DOWN         &kp UP_ARROW  &kp RIGHT  &none
-&none   &kp F11  &kp F12  &trans  &trans  &kp LG(LS(NUMBER_4))  &trans              &kp DOWN              &kp LA(LEFT)      &kp LA(RIGHT)      &trans           &trans        &none      &none
-                          &trans  &trans  &trans                                                          &trans            &trans             &trans
+&trans  &kp F1   &kp F2   &kp F3  &kp F4  &kp F5                                          &mmv MOVE_UP                     &kp K_PLAY_PAUSE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans        &kp BSPC   &none
+&none   &kp F6   &kp F7   &kp F8  &kp F9  &kp F10                         &mmv MOVE_LEFT  &mkp LCLK       &mmv MOVE_RIGHT  &none             &kp LEFT           &kp DOWN         &kp UP_ARROW  &kp RIGHT  &none
+&none   &kp F11  &kp F12  &trans  &trans  &kp LG(LS(NUMBER_4))  &trans                    &mmv MOVE_DOWN                   &kp LA(LEFT)      &kp LA(RIGHT)      &trans           &trans        &none      &none
+                          &trans  &trans  &trans                                                                           &trans            &trans             &trans
             >;
 
             sensor-bindings = <&scroll_encoder>;
