@@ -32,21 +32,33 @@
 };
 
 / {
-    combos {
+combos {
         compatible = "zmk,combos";
 
-        enter {
+        Enter {
             bindings = <&kp ENTER>;
             key-positions = <7 8 9>;
             layers = <0>;
         };
-        tab {
+
+        Tab {
             bindings = <&kp TAB>;
             key-positions = <2 3>;
         };
+
         esc {
             bindings = <&kp ESCAPE>;
             key-positions = <7 8>;
+        };
+
+        Iock {
+            bindings = <&kp K_LOCK>;
+            key-positions = <17 18>;
+        };
+
+        equals {
+            bindings = <&kp EQUAL>;
+            key-positions = <30 31>;
         };
     };
 
