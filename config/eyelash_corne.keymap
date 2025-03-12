@@ -31,7 +31,7 @@
     trigger-period-ms = <16>;
 };
 
- / {
+/ {
     combos {
         compatible = "zmk,combos";
 
@@ -40,12 +40,10 @@
             key-positions = <7 8 9>;
             layers = <0>;
         };
-
         tab {
             bindings = <&kp TAB>;
             key-positions = <2 3>;
         };
-
         esc {
             bindings = <&kp ESCAPE>;
             key-positions = <7 8>;
@@ -62,7 +60,6 @@
             require-prior-idle-ms = <150>;
             hold-trigger-on-release;
         };
-
         hold_tap_right: hold_tap_right {
             compatible = "zmk,behavior-hold-tap";
             bindings = <&kp>, <&kp>;
@@ -74,7 +71,6 @@
         };
     };
 
-    // (Optional) Encoder or joystick definitions
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -85,123 +81,107 @@
     keymap {
         compatible = "zmk,keymap";
 
-        //=======================================================
-        // BASE LAYER (Your old “BASE” layout)
-        //=======================================================
+        /*******************************************************
+         * BASE LAYER (Old Corne “BASE”)
+         * — 4 “rows” here: top row, home row, bottom row, thumbs
+         *******************************************************/
         base_layer {
             display-name = "BASE";
             bindings = <
+                /* Row 0 (12 keys) => Left 6, Right 6 */
+                &kp TILDE  &kp B  &kp L  &kp D  &kp W  &kp Z
+                &kp SINGLE_QUOTE  &kp F  &kp O  &kp U  &kp J  &kp SEMICOLON
 
-            // -------------------
-            // Left half, row 0
-            &kp TILDE         &kp B            &kp L            &kp D            &kp W            &kp Z
+                /* Row 1 (12 keys) => Left 6, Right 6 */
+                &none      &kp N  &hold_tap_left LGUI R    &hold_tap_left LEFT_ALT T
+                &hold_tap_left LCTRL S    &kp G
+                &kp Y      &hold_tap_right RCTRL H
+                &hold_tap_right RIGHT_ALT A   &hold_tap_right RIGHT_GUI E
+                &kp I      &kp COMMA
 
-            // Left half, row 1
-            &none             &kp N            &hold_tap_left LGUI R
-            &hold_tap_left LEFT_ALT T          &hold_tap_left LCTRL S  &kp G
+                /* Row 2 (12 keys) => Left 6, Right 6 */
+                &lt 3 TAB  &kp Q  &kp X  &kp M  &kp C  &kp V
+                &kp K      &kp P  &kp PERIOD  &kp MINUS  &kp FSLH  &kp EXCLAMATION
 
-            // Left half, row 2
-            &lt 3 TAB         &kp Q            &kp X            &kp M            &kp C            &kp V
-
-            // (If your board shows 1-2 more keys in the bottom row or the thumb cluster on the left half, set them to &none or your old thumb keys.)
-            // e.g.: &none &none  or
-            // &mt LC(LS(LA(LGUI))) ESC &kp BACKSPACE
-
-            // -------------------
-            // Right half, row 0
-            &kp SINGLE_QUOTE  &kp F            &kp O            &kp U            &kp J            &kp SEMICOLON
-
-            // Right half, row 1
-            &kp Y             &hold_tap_right RCTRL H
-            &hold_tap_right RIGHT_ALT A        &hold_tap_right RIGHT_GUI E
-            &kp I             &kp COMMA
-
-            // Right half, row 2
-            &kp K             &kp P            &kp PERIOD       &kp MINUS        &kp FSLH         &kp EXCLAMATION
-
-            // (Similarly, if you have more thumb keys on the right, place them here or set to &none)
-            // e.g.: &mt LC(LS(LA(LGUI))) ESC &kp BACKSPACE &lt 1 SPACE &lt 2 ENTER &kp RIGHT_SHIFT &kp Q
+                /* Row 3 (6 keys) => Thumb row */
+                &mt LC(LS(LA(LGUI))) ESCAPE   &kp BACKSPACE
+                &lt 1 SPACE   &lt 2 ENTER   &kp RIGHT_SHIFT   &kp Q
             >;
-
-            // Example: If you want volume with an encoder on base layer
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOLUME_DOWN>;
         };
 
-        //=======================================================
-        // FUNCTION LAYER (Your old “FUNC”)
-        //=======================================================
+        /*******************************************************
+         * FUNCTION LAYER (Old “FUNC”)
+         *******************************************************/
         function_layer {
             display-name = "FUNC";
             bindings = <
-                // Left half, row 0
-                &trans  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5
+                /* Row 0 (12 keys) */
+                &trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5
+                &trans &kp K_PLAY_PAUSE &kp C_VOLUME_DOWN &kp C_VOLUME_UP &trans &kp BSPC
 
-                // ...
-                // Fill in your old function row 0..2 for left half
-                // Then the right half's row 0..2
-                // Example:
-                &trans  &kp K_PLAY_PAUSE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans  &kp BSPC
+                /* Row 1 (12 keys) */
+                &none &kp F6 &kp F7 &kp F8 &kp F9 &kp F10
+                &trans &kp LEFT &kp DOWN_ARROW &kp UP_ARROW &kp RIGHT &trans
 
-                // Left half, row 1
-                &none   &kp F6   &kp F7   &kp F8   &kp F9   &kp F10
-                // Right half, row 1
-                &trans  &kp LEFT  &kp DOWN_ARROW  &kp UP_ARROW &kp RIGHT  &trans
+                /* Row 2 (12 keys) */
+                &none &kp F11 &kp F12 &trans &trans &kp LG(LS(NUMBER_4))
+                &trans &kp LA(LEFT) &kp LA(RIGHT) &trans &trans &trans
 
-                // Left half, row 2
-                &none   &kp F11  &kp F12  &trans  &trans  &kp LG(LS(NUMBER_4))
-                // Right half, row 2
-                &trans  &kp LA(LEFT) &kp LA(RIGHT) &trans &trans &trans
+                /* Row 3 (6 keys) => thumbs */
+                &trans &trans &trans &trans &trans &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
-        //=======================================================
-        // SYMBOL LAYER (Your old “SYMB”)
-        //=======================================================
+        /*******************************************************
+         * SYMBOL LAYER (Old “SYMB”)
+         *******************************************************/
         symbol_layer {
             display-name = "SYMB";
             bindings = <
-                // Left half, row 0
+                /* Row 0 (12 keys) */
                 &trans  &kp EXCL  &kp AT  &kp LEFT_BRACE  &kp RIGHT_BRACE  &kp PIPE
-                // Right half, row 0
                 &kp PLUS  &kp N7  &kp N8  &kp N9  &kp ASTERISK  &none
 
-                // Left half, row 1
-                &trans   &kp MINUS &kp EQUAL &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp GRAVE
-                // Right half, row 1
+                /* Row 1 (12 keys) */
+                &trans  &kp MINUS &kp EQUAL &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp GRAVE
                 &kp MINUS &kp NUMBER_4 &kp N5 &kp NUMBER_6 &kp SEMICOLON &none
 
-                // Left half, row 2
-                &kp LSHFT &kp PERCENT &kp CARET &kp LEFT_BRACKET &kp RIGHT_BRACKET &kp AMPERSAND
-                // Right half, row 2
-                &kp EQUAL &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUBS &none
+                /* Row 2 (12 keys) */
+                &kp LSHFT  &kp PERCENT  &kp CARET  &kp LEFT_BRACKET
+                &kp RIGHT_BRACKET  &kp AMPERSAND  &kp EQUAL  &kp NUMBER_1
+                &kp NUMBER_2  &kp NUMBER_3  &kp NUBS  &none
+
+                /* Row 3 (6 keys) => thumbs */
+                &trans  &trans  &trans  &trans  &trans  &kp N0
             >;
             sensor-bindings = <&scroll_encoder>;
         };
 
-        //=======================================================
-        // WINDOWS LAYER (Your old “WIN”)
-        //=======================================================
+        /*******************************************************
+         * WINDOWS LAYER (Old “WIN”)
+         *******************************************************/
         windows_layer {
             display-name = "WIN";
             bindings = <
-                // Left half, row 0
+                /* Row 0 (12 keys) */
                 &trans &trans &trans &trans &trans &trans
-                // Right half, row 0
                 &trans &kp LA(LS(KP_NUMBER_7)) &kp LS(LA(KP_NUMBER_8))
                 &kp LA(LS(KP_NUMBER_9)) &trans &trans
 
-                // Left half, row 1
+                /* Row 1 (12 keys) */
                 &trans &trans &trans &trans &trans &trans
-                // Right half, row 1
                 &trans &kp LA(LS(KP_NUMBER_4)) &kp LS(LA(KP_NUMBER_5))
                 &kp LA(LS(KP_NUMBER_6)) &trans &trans
 
-                // Left half, row 2
+                /* Row 2 (12 keys) */
                 &trans &trans &trans &trans &trans &trans
-                // Right half, row 2
                 &trans &kp LA(LS(KP_NUMBER_1)) &kp LA(LS(KP_NUMBER_2))
                 &kp LA(LS(KP_NUMBER_3)) &trans &trans
+
+                /* Row 3 (6 keys) => thumbs */
+                &trans &trans &trans &trans &trans &trans
             >;
             sensor-bindings = <&scroll_encoder>;
         };
