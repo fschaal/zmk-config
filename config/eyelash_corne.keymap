@@ -137,10 +137,10 @@
         symbol_layer {
             display-name = "SYMB";
             bindings = <
-&trans     &kp EXCL     &kp AT      &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE                              &kp UP                &none   &kp N7        &kp N8        &kp N9        &kp ASTRK             &none
-&trans     &kp POUND    &kp DOLLAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp GRAVE                   &kp LEFT  &kp ENTER  &kp RIGHT  &none   &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp SEMICOLON         &none
-&kp LSHFT  &kp PERCENT  &kp CARET   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp AMPERSAND  &kp EQUAL              &kp DOWN              &none   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NON_US_BACKSLASH  &none
-                                    &trans                &trans                 &trans                                                      &trans  &trans        &kp N0
+&trans     &kp EXCL     &kp AT      &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE                              &kp UP                &kp PLUS   &kp N7        &kp N8        &kp N9        &kp ASTRK             &none
+&trans     &kp POUND    &kp DOLLAR  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp GRAVE                   &kp LEFT  &kp ENTER  &kp RIGHT  &kp MINUS  &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp SEMICOLON         &none
+&kp LSHFT  &kp PERCENT  &kp CARET   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp AMPERSAND  &kp EQUAL              &kp DOWN              &kp EQUAL  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NON_US_BACKSLASH  &none
+                                    &trans                &trans                 &trans                                                      &trans     &trans        &kp N0
             >;
 
             sensor-bindings = <&scroll_encoder>;
