@@ -90,10 +90,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp TILDE  &kp B  &kp L                  &kp D                        &kp W                   &kp Z          &kp SINGLE_QUOTE  &kp F                    &kp O                        &kp U                        &kp J     &kp SEMICOLON
-&none      &kp N  &Hold_tap_left LGUI R  &Hold_tap_left LEFT_ALT T    &Hold_tap_left LCTRL S  &kp G          &kp Y             &Hold_tap_right RCTRL H  &Hold_tap_right RIGHT_ALT A  &Hold_tap_right RIGHT_GUI E  &kp I     &kp COMMA
-&lt 3 TAB  &kp Q  &kp X                  &kp M                        &kp C                   &kp V          &kp K             &kp P                    &kp PERIOD                   &kp MINUS                    &kp FSLH  &kp EXCLAMATION
-                                         &mt LC(LS(LA(LGUI))) ESCAPE  &kp BACKSPACE           &lt 1 SPACE    &lt 2 ENTER       &kp RIGHT_SHIFT          &kp Q
+&kp TILDE        &kp B  &kp L                  &kp D                        &kp W                   &kp Z          &kp SINGLE_QUOTE  &kp F                    &kp O                        &kp U                        &kp J     &kp SEMICOLON
+&kp PAUSE_BREAK  &kp N  &Hold_tap_left LGUI R  &Hold_tap_left LEFT_ALT T    &Hold_tap_left LCTRL S  &kp G          &kp Y             &Hold_tap_right RCTRL H  &Hold_tap_right RIGHT_ALT A  &Hold_tap_right RIGHT_GUI E  &kp I     &kp COMMA
+&lt 3 TAB        &kp Q  &kp X                  &kp M                        &kp C                   &kp V          &kp K             &kp P                    &kp PERIOD                   &kp MINUS                    &kp FSLH  &kp EXCLAMATION
+                                               &mt LC(LS(LA(LGUI))) ESCAPE  &kp BACKSPACE           &lt 1 SPACE    &lt 2 ENTER       &kp RIGHT_SHIFT          &kp Q
             >;
 
             label = "BASE";
