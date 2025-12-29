@@ -19,13 +19,13 @@ To trigger a build, push changes to the repository. Download the compiled `.uf2`
 
 ## Key Configuration Files
 
-### `config/corne.keymap`
+### `config/eyelash_corne.keymap`
 The main keymap file using Devicetree syntax. Contains:
 - **Combos**: Key combinations that trigger actions (Enter, Tab, Escape, Lock, Equals)
 - **Behaviors**: Custom hold-tap configurations for home row mods (balanced flavor with positional hold-trigger)
 - **Layers**: BASE (custom layout), FUNC (F-keys and media), SYMB (symbols and numbers), WIN (window management)
 
-### `config/corne.conf`
+### `config/eyelash_corne.conf`
 Board configuration options:
 - Bluetooth power boost enabled (`CONFIG_BT_CTLR_TX_PWR_PLUS_8`)
 - Deep sleep enabled (15 min timeout, 30 sec idle)
